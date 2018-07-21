@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+  as-db:
+    image: alangtw/aerospike:180719
+    hostname: as-db
+    volumes:
+      - ./as-db/data:/opt/aerospike/data
+      - ./as-db/etc:/opt/aerospike/etc
+      - ./as-db/log:/var/log/aerospike
+    command: ["/usr/bin/asd","--foreground","--config-file","/opt/aerospike/etc/aerospike.conf"]
+    restart: always
+
+  web:
+    build: web
+    image: openlitespeed-raida
+    hostname: web
+    ports:
+      - 443:443
+    volumes:
+      - ./web/conf/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf 
+      - ./web/conf/vhosts:/usr/local/lsws/conf/vhosts
+      - ./web/raida:/usr/local/lsws/raida
+    restart: always
+
