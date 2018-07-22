@@ -12,6 +12,10 @@ services:
     command: ["/usr/bin/asd","--foreground","--config-file","/opt/aerospike/etc/aerospike.conf"]
     restart: always
 
+  as-tools:
+    image: aerospike/aerospike-tools
+    hostname: as-tools
+
   web:
     build: web
     image: openlitespeed-raida
