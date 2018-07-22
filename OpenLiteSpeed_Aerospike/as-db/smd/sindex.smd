@@ -1,0 +1,25 @@
+# Define secondary indexes (replace XX with your node number)
+[
+   {
+      "module": "sindex",
+      "key": "raidaXX|fixit_log|rn|.|S",
+      "value": "fix_rXX",
+      "generation": 1,
+      "timestamp": 261056821787
+   },
+   {
+      "module": "sindex",
+      "key": "raidaXX|extend_log|sne|.|I",
+      "value": "ext_sne_rXX",
+      "generation": 1,
+      "timestamp": 263469301187
+   },
+   {
+      "module": "sindex",
+      "key": "raidaXX|extend_log|time|.|I",
+      "value": "ext_time_rXX",
+      "generation": 1,
+      "timestamp": 263469360759
+   }
+]
+

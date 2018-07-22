@@ -8,6 +8,7 @@ services:
       - ./as-db/data:/opt/aerospike/data
       - ./as-db/etc:/opt/aerospike/etc
       - ./as-db/log:/var/log/aerospike
+      - ./as-db/smd/sindex.smd:/opt/aerospike/smd/sindex.smd
     command: ["/usr/bin/asd","--foreground","--config-file","/opt/aerospike/etc/aerospike.conf"]
     restart: always
 
