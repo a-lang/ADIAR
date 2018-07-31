@@ -10,7 +10,6 @@ services:
       - ./as-db/log:/var/log/aerospike
       - ./as-db/smd/sindex.smd:/opt/aerospike/smd/sindex.smd
     command: ["/usr/bin/asd","--foreground","--config-file","/opt/aerospike/etc/aerospike.conf"]
-    restart: always
 
   as-tools:
     image: aerospike/aerospike-tools
@@ -28,5 +27,4 @@ services:
       - ./web/conf/httpd_config.conf:/usr/local/lsws/conf/httpd_config.conf 
       - ./web/conf/vhosts:/usr/local/lsws/conf/vhosts
       - ./web/raida:/usr/local/lsws/raida
-    restart: always
 
