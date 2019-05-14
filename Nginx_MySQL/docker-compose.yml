@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  web:
+    image: nginx:latest
+    links:
+      - php
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./web/etc_nginx/conf.d:/etc/nginx/conf.d
+      - ./web/etc_nginx/ssl:/etc/nginx/ssl
+    volumes_from:
+      - php
+
+  php:
+    build: 7.2-fpm-opcache
+    links:
+      - db
+    volumes:
+      - ./php/usr_local_etc_php/conf.d/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+      - ./php/usr_local_etc_php/conf.d/mysqli.ini:/usr/local/etc/php/conf.d/mysqli.ini
+      - ./php/usr_local_etc_php/php.ini:/usr/local/etc/php/php.ini
+      - ./php/var_www_html:/var/www/html
+
+  db:
+    image: mariadb:10.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret2
+    volumes:
+      - ./db/var_lib_mysql:/var/lib/mysql
+      - ./db/backup:/backup
+
