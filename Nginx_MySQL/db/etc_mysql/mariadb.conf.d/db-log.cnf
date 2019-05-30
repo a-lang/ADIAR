@@ -1,2 +1,2 @@
 [mysqld]
- log_error = /var/log/mysql/error.log
+ log_error = /dev/stdout
