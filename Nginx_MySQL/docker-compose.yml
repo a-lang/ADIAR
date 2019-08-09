@@ -1,5 +1,4 @@
 version: '2'
-
 services:
   web:
     image: nginx:latest
@@ -26,6 +25,7 @@ services:
     volumes:
       - ./php/usr_local_etc_php/conf.d/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
       - ./php/usr_local_etc_php/conf.d/mysqli.ini:/usr/local/etc/php/conf.d/mysqli.ini
+      - ./php/usr_local_etc_php/php-fpm.d:/usr/local/etc/php-fpm.d
       - ./php/usr_local_etc_php/php.ini:/usr/local/etc/php/php.ini
       - ./php/var_www_html:/var/www/html
     logging:
