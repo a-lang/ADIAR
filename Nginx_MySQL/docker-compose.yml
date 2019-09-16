@@ -10,6 +10,7 @@ services:
     volumes:
       - ./web/etc_nginx/conf.d:/etc/nginx/conf.d
       - ./web/etc_nginx/ssl:/etc/nginx/ssl
+      - ./web/opt_raida_messages:/opt/raida_messages
     volumes_from:
       - php
     logging:
