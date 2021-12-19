@@ -48,3 +48,14 @@ services:
         max-size: "5m"
         max-file: "3"
 
+  cc_convt:
+    build: cc_convt
+    links:
+      - db
+    ports: 
+      - "18000:18000/udp"
+    volumes:
+      - ./cc_convt/data:/opt
+      - ./cc_convt/data/supervisord.conf:/etc/supervisord.conf
+    command: ["supervisord","-c","/etc/supervisord.conf"]
+

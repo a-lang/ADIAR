@@ -1,0 +1,6 @@
+[mysqld]
+## for RAIDA Memory Tables
+# NOTE: The init-file must exist.
+tmp_table_size=1G
+max_heap_table_size=1G
+init-file=/backup/importTable.sql
